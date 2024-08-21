@@ -14,6 +14,8 @@ def get_brand_name(car_name):
     return car_name.strip()
 cars_data['name'] = cars_data['name'].apply(get_brand_name)
 
+name = st.selectbox('Select Car Brand', cars_data['name'].unique()) # Added closing parenthesis
+
 name = st.selectbox('Select Car Brand', cars_data['name'].unique())
 year = st.slider('Car Manufactured Year', 1994,2024)
 km_driven = st.slider('No of kms Driven', 11,200000)
