@@ -15,15 +15,15 @@ def get_brand_name(car_name):
 cars_data['name'] = cars_data['name'].apply(get_brand_name)
 
 name = st.selectbox('Select Car Brand', cars_data['name'].unique())
-year = st.slider('Car Manufactured Year', 1994,2024)
-km_driven = st.slider('No of kms Driven', 11,200000)
+year = st.text_input('Car Manufactured Year', 1994,2024)
+km_driven = st.text_input('No of kms Driven', 11,200000)
 fuel = st.selectbox('Fuel type', cars_data['fuel'].unique())
 seller_type = st.selectbox('Seller  type', cars_data['seller_type'].unique())
 transmission = st.selectbox('Transmission type', cars_data['transmission'].unique())
 owner = st.selectbox('Seller  type', cars_data['owner'].unique())
-mileage = st.slider('Car Mileage', 10,40)
-engine = st.slider('Engine CC', 700,5000)
-max_power = st.slider('Max Power', 0,200)
+mileage = st.text_input('Car Mileage', 10,40)
+engine = st.text_input('Engine CC', 700,5000)
+max_power = st.text_input('Max Power', 0,200)
 seats = st.slider('No of Seats', 5,10)
 
 
