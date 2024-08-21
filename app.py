@@ -4,21 +4,6 @@ import pickle as pk
 import streamlit as st
 from PIL import Image
 
-# Set the page config
-st.set_page_config(
-    page_title="Car Price Prediction",
-    page_icon=":car:",
-    layout="wide",
-    initial_sidebar_state="expanded",
-    menu_items={
-        'Get Help': None,
-        'Report a bug': None,
-        'About': None
-    },
-    page_background_color='#f44336',  # Red
-    page_text_color='#ffffff',  # White
-)
-
 # Load the car details CSV
 cars_data = pd.read_csv('Cars.csv')
 
@@ -31,6 +16,24 @@ cars_data['name'] = cars_data['name'].apply(get_brand_name)
 
 # Load the pre-trained model
 model = pk.load(open('model.pkl', 'rb'))
+
+# Set the page config
+try:
+    st.set_page_config(
+        page_title="Car Price Prediction",
+        page_icon=":car:",
+        layout="wide",
+        initial_sidebar_state="expanded",
+        menu_items={
+            'Get Help': None,
+            'Report a bug': None,
+            'About': None
+        },
+        page_background_color='#f44336',  # Red
+        page_text_color='#ffffff',  # White
+    )
+except Exception as e:
+    print(f"Error setting page config: {e}")
 
 # Header of the Web App
 st.title('Car Price Prediction ML Model', anchor=None)
